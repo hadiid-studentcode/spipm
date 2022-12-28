@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +22,17 @@ use Illuminate\Support\Facades\Route;
 // default
 Route::get('/', function () {
     return redirect('/login');
-});
+})->name('login')->middleware('guest');
 
 // login
-Route::get('/login',[LoginController::class,'login']);
-// auth
+Route::get('/login',[LoginController::class,'login'])->name('login')->middleware('guest');
 Route::post('/login',[LoginController::class, 'authenticate']);
+// logout
+Route::get('/logout', [LoginController::class, 'logout']);
+
+
+// dashboard
+Route::resource('/dashboard', DashboardController::class)->middleware('auth');
 
 
 
