@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>SPI IPM | {{ $title }}</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -26,6 +26,8 @@
   <link rel="stylesheet" href={{ URL::asset("Assets/plugins/daterangepicker/daterangepicker.css") }}>
   <!-- summernote -->
   <link rel="stylesheet" href={{ URL::asset("Assets/plugins/summernote/summernote-bs4.min.css") }}>
+   <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -60,7 +62,7 @@
     <!-- /.content-header -->
 
     @yield('container')
-    
+
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
