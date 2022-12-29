@@ -13,7 +13,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('Dashboard.index');
+        return view('Dashboard.index')
+        ->with('active','Dashboard')
+        ->with('title','Dashboard');
     }
 
     /**

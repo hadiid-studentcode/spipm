@@ -10,18 +10,20 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="Assets/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href={{ URL::asset("Assets/plugins/fontawesome-free/css/all.min.css") }}>
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="Assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href={{ URL::asset("Assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css") }}>
     <!-- Theme style -->
-    <link rel="stylesheet" href="Assets/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href={{ URL::asset("Assets/dist/css/adminlte.min.css") }}>
+
+
 </head>
 
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-             <img src="Assets/images/logospipm.png" class="img-fluid" alt="..."  width="150"> <br>
-            <a class="mb-3" href="../../index2.html"><b>SP</b>IPM</a>
+             <img src={{ URL::asset("Assets/images/logospipm.png") }} class="img-fluid" alt="logo spipm"  width="150"> <br>
+            <a class="mb-3" href={{ URL::asset("../../index2.html") }}><b>SP</b>IPM</a>
 
         </div>
         <!-- /.login-logo -->
@@ -34,7 +36,7 @@
             </div>
             @endif
 
-            <form action="/login" method="post">
+            <form action={{ URL::asset("/login") }} method="post">
                 @csrf
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Username" name="username">
@@ -93,11 +95,11 @@
     <!-- /.login-box -->
 
     <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src={{ URL::asset("Assets/plugins/jquery/jquery.min.js") }}></script>
     <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src={{ URL::asset("Assets/plugins/bootstrap/js/bootstrap.bundle.min.js") }}></script>
     <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
+    <script src={{ URL::asset("Assets/dist/js/adminlte.min.js") }}></script>
 </body>
 
 </html>
