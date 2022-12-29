@@ -20,8 +20,9 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>SP</b>IPM</a>
-            <img src="" class="img-fluid" alt="...">
+             <img src="Assets/images/logospipm.png" class="img-fluid" alt="..."  width="150"> <br>
+            <a class="mb-3" href="../../index2.html"><b>SP</b>IPM</a>
+
         </div>
         <!-- /.login-logo -->
         <div class="card">
