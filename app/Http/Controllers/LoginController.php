@@ -10,7 +10,12 @@ class LoginController extends Controller
 
     public function login()
     {
-        return view('Login.index');
+
+        if (Auth::check()) {
+            return redirect('/dashboard');
+        } else {
+            return view('Login.index');
+        }
     }
 
     public function authenticate(Request $request)

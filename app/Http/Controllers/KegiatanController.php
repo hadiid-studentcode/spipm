@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class KegiatanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,12 +13,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
-
-
-        return view('Dashboard.index')
-        ->with('active','Dashboard')
-        ->with('title','Dashboard');
+        //
     }
 
     /**
