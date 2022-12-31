@@ -13,7 +13,9 @@ class KepanitiaanController extends Controller
      */
     public function index()
     {
-        //
+        return view('Dashboard.Kepanitiaan.index')
+        ->with('title','Kepanitiaan')
+        ->with('active', 'kepanitiaan');
     }
 
     /**

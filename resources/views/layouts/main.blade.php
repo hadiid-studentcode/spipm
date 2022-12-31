@@ -31,7 +31,13 @@
     <link rel="stylesheet" href={{ URL::asset('Assets/plugins/summernote/summernote-bs4.min.css') }}>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-          <script src="https://kit.fontawesome.com/682b10792d.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/682b10792d.js" crossorigin="anonymous"></script>
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="Assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="Assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="Assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -39,8 +45,9 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src={{ URL::asset('Assets/images/logospipm.png') }} alt="AdminLTELogo" height="60" width="60">
-  </div>
+            <img class="animation__shake" src={{ URL::asset('Assets/images/logospipm.png') }} alt="AdminLTELogo"
+                height="60" width="60">
+        </div>
 
         @include('layouts.header')
 
@@ -53,11 +60,11 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">{{ $title }}</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                  <li class="breadcrumb-item"><a href="{{ asset('/dashboard') }}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ asset('/dashboard') }}">Home</a></li>
                                 <li class="breadcrumb-item active">{{ $title }}</li>
                             </ol>
                         </div><!-- /.col -->
@@ -95,6 +102,7 @@
         $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
+
     <script src={{ URL::asset('Assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}></script>
     <!-- ChartJS -->
     <script src={{ URL::asset('Assets/plugins/chart.js/Chart.min.js') }}></script>
@@ -120,6 +128,57 @@
     <script src={{ URL::asset('Assets/dist/js/demo.js') }}></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src={{ URL::asset('Assets/dist/js/pages/dashboard.js') }}></script>
+    {{-- retina --}}
+    <script src="{{ URL::asset('Assets/plugins/retina/retina.min.js') }}"></script>
+
+    <!-- DataTables  & Plugins -->
+    <script src="Assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="Assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="Assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="Assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="Assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="Assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="Assets/plugins/jszip/jszip.min.js"></script>
+    <script src="Assets/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="Assets/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="Assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="Assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="Assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="Assets/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="Assets/dist/js/demo.js"></script>
+    <!-- Page specific script -->
+
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+
+    <!-- bs-custom-file-input -->
+    <script src="Assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+    <script>
+        $(function() {
+            bsCustomFileInput.init();
+        });
+    </script>
+
 </body>
 
 </html>
