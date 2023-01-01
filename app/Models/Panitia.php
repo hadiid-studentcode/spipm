@@ -19,4 +19,11 @@ class Panitia extends Model
 
     ];
     protected $primaryKey = 'id';
+
+    public function simpanPanitia($data){
+
+        $result = Panitia::create($data);
+        return $result;
+
+    }
 }

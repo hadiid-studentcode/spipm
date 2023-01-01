@@ -9,73 +9,85 @@
 
                 <div class="modal fade" id="modal-primary">
                     <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Tambah Panitia</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="nama">Nama lengkap <b style="color: red">*</b></label>
-                                    <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap"
-                                        required name="namap">
+                        <form action={{ URL::asset('/kepanitiaan') }} method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Tambah Panitia</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
-                                <div class="form-group">
-                                    <label for="nba">Nomor Bangku Anggota IPM</label>
-                                    <input type="text" class="form-control" id="nba" name="nbap"
-                                        placeholder="00.00.00000">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nba">Nomor Wa <b style="color: red">*</b></label>
-                                    <input type="number" class="form-control" id="wa" name="wap"
-                                        placeholder="0000-0000-0000" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nba">Jenis Kelamin <b style="color: red">*</b></label>
-                                    <select class="custom-select form-control-border" aria-label="jk" name="jkp">
-                                        <option selected>Pilih Jenis Kelamin</option>
-                                        <option value="Laki - laki">Laki - laki </option>
-                                        <option value="Perempuan">Perempuan</option>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="nama">Nama lengkap <b style="color: red">*</b></label>
+                                        <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap"
+                                            required name="namap">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nba">Nomor Bangku Anggota IPM</label>
+                                        <input type="text" class="form-control" id="nba" name="nbap"
+                                            placeholder="00.00.00000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nba">Nomor Wa <b style="color: red">*</b></label>
+                                        <input type="number" class="form-control" id="wa" name="wap"
+                                            placeholder="0000-0000-0000" value="" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nba">Jenis Kelamin <b style="color: red">*</b></label>
+                                        <select class="custom-select form-control-border" aria-label="jk" name="jkp" required>
+                                            <option selected>Pilih Jenis Kelamin</option>
+                                            <option value="Laki-laki">Laki-laki </option>
+                                            <option value="Perempuan">Perempuan</option>
 
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nba">Jabatan Kepanitiaan <b style="color: red">*</b></label>
-                                    <select class="custom-select form-control-border" aria-label="jk" name="jp">
-                                        <option selected="selected">Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nba">Jabatan Kepanitiaan <b style="color: red">*</b></label>
+                                        <select class="custom-select form-control-border" aria-label="jk" name="jp" required>
+                                            <option selected="selected">Pilih Jabatan</option>
+                                            <option value="Ketua Panitia">Ketua Panitia</option>
+                                            <option value="Sekretaris Panitia">Sekretaris Panitia</option>
+                                            <option value="Bendahara Panitia" >Bendahara Panitia</option>
+                                            <option value="Devisi Acara">Devisi Acara</option>
+                                            <option value="Devisi Konsumsi">Devisi Konsumsi</option>
+                                            <option value="Devisi Pendanaan">Devisi Pendanaan</option>
+                                            <option value="Devisi Humas">Devisi Humas</option>
+                                            <option value="Devisi Perlengkapan">Devisi Perlengkapan</option>
+                                            <option value="Devisi Dokumentasi">Devisi Dokumentasi</option>
+                                            <option value="Anggota Acara">Anggota Acara</option>
+                                            <option value="Anggota Konsumsi">Anggota Konsumsi</option>
+                                            <option value="Anggota Pendanaan">Anggota Pendanaan</option>
+                                            <option value="Anggota Humas">Anggota Humas</option>
+                                            <option value="Anggota Perlengkapan">Anggota Perlengkapan</option>
+                                            <option value="Anggota Dokumentasi">Anggota Dokumentasi</option>
 
 
 
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputFile">File input</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile"
-                                                name="gambarp">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Upload</span>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputgambar">File input</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="gambarp"
+                                                    name="gambarp">
+                                                <label class="custom-file-label" for="inputgambar">Choose file</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save Data</button>
+                                </div>
                             </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save Data</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
+                            <!-- /.modal-content -->
+                        </form>
                     </div>
                     <!-- /.modal-dialog -->
                 </div>
@@ -134,14 +146,14 @@
                                                         <!-- Add the bg color to the header using any of the bg-* classes -->
                                                         <div class="widget-user-header text-white"
                                                             style="background: url('Assets/dist/img/photo1.png') center center;">
-                                                            <h3 class="widget-user-username text-right">Hadiid Andri Yulison
+                                                            <h3 class="widget-user-username text-right">Hadiid Andri
+                                                                Yulison
                                                             </h3>
                                                             <h5 class="widget-user-desc text-right">Ketua Panitia</h5>
                                                         </div>
                                                         <div class="widget-user-image">
                                                             <img class="img-circle"
-                                                                src={{ URL::asset("Assets/images/peserta1.jpg") }}
-
+                                                                src={{ URL::asset('Assets/images/peserta1.jpg') }}
                                                                 alt="peserta">
 
                                                         </div>
@@ -150,7 +162,8 @@
                                                                 <div class="col-sm-4 border-right">
                                                                     <div class="description-block">
                                                                         <h5 class="description-header">
-                                                                            <a href="#"><i class="fa-solid fa-delete-left"></i></a>
+                                                                            <a href="#"><i
+                                                                                    class="fa-solid fa-delete-left"></i></a>
                                                                         </h5>
                                                                         <span class="description-text">DELETE</span>
                                                                     </div>
@@ -160,7 +173,9 @@
                                                                 <div class="col-sm-4 border-right">
                                                                     <div class="description-block">
                                                                         <h5 class="description-header">
-                                                                            <a href="https://api.whatsapp.com/send?phone=6289620569613&text=Assalamualaikum%20Hadiid%20Andri%20Yulison%2C%20Ketua%20Panitia%2C" target="_blank" ><i class="fa-brands fa-whatsapp"></i></a>
+                                                                            <a href="https://api.whatsapp.com/send?phone=6289620569613&text=Assalamualaikum%20Hadiid%20Andri%20Yulison%2C%20Ketua%20Panitia%2C"
+                                                                                target="_blank"><i
+                                                                                    class="fa-brands fa-whatsapp"></i></a>
                                                                         </h5>
                                                                         <span class="description-text">CHAT</span>
                                                                     </div>
@@ -191,7 +206,7 @@
                                                             <div class="card">
                                                                 <div class="card-header">
                                                                     <h3 class="card-title">
-                                                                     <i class="fa-solid fa-circle-info"></i>
+                                                                        <i class="fa-solid fa-circle-info"></i>
                                                                         Information
                                                                     </h3>
                                                                 </div>
@@ -210,7 +225,7 @@
                                                                         <dd>Laki - Laki</dd>
                                                                         <dt>Jabatan</dt>
                                                                         <dd>Ketua Panitia</dd>
-                                                                    </d>
+                                                                        </d>
                                                                 </div>
                                                                 <!-- /.card-body -->
                                                             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Panitia;
 use Illuminate\Http\Request;
 
 class KepanitiaanController extends Controller
@@ -36,7 +37,61 @@ class KepanitiaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+
+        $request->validate([
+
+            'gambarp' => 'mimes:jpg,jpeg,png|max:5000'
+        ]);
+
+        if ($request->hasfile('gambarp')) {
+
+
+
+            $gambarp = round(microtime(true) * 1000) . '-' . str_replace(' ', '-', $request->file('gambarp')->getClientOriginalName());
+
+
+            $data = [
+                'nama' => $request->input('namap'),
+                'nba' => $request->input('nbap'),
+                'wa' => '+62' . $request->input('wap'),
+                'jk' => $request->input('jkp'),
+                'jabatan' => $request->input('jp'),
+                'foto' => $gambarp
+            ];
+
+
+
+            // simpan kegiatan
+            $result = new Panitia();
+            $result->simpanPanitia($data);
+            $request->file('gambarp')->move(public_path('Assets/images/panitia'), $gambarp);
+
+
+
+            return redirect('/kepanitiaan');
+        } elseif ($request->hasfile('gambarp') == false) {
+            $data = [
+                'nama' => $request->input('namap'),
+                'nba' => $request->input('nbap'),
+                'wa' => '+62' . $request->input('wap'),
+                'jk' => $request->input('jkp'),
+                'jabatan' => $request->input('jp'),
+                'foto' => $request->input('gambarp')
+            ];
+
+            // simpan kegiatan
+            $result = new Panitia();
+            $result->simpanPanitia($data);
+
+
+            return redirect('/kepanitiaan');
+        } else {
+            return back()
+                ->with('warning', 'Panitia Gagal Disimpan');
+        }
+
     }
 
     /**
