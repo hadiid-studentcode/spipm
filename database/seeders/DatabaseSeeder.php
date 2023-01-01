@@ -23,5 +23,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'hadiidandri2000@gmail.com',
             'password'=> bcrypt(123)
         ]);
+
+
+          \App\Models\Panitia::factory(20)->create();
+
     }
 }

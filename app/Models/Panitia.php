@@ -26,4 +26,10 @@ class Panitia extends Model
         return $result;
 
     }
+
+    public function panitia(){
+        $result = Panitia::all();
+
+        return $result;
+    }
 }

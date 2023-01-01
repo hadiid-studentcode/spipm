@@ -95,7 +95,8 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    // 'fallback_locale' => 'en',
+    'faker_locale' => env('FAKER_LOCALE', 'en_US'),
 
     /*
     |--------------------------------------------------------------------------

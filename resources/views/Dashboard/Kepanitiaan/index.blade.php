@@ -36,7 +36,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="nba">Jenis Kelamin <b style="color: red">*</b></label>
-                                        <select class="custom-select form-control-border" aria-label="jk" name="jkp" required>
+                                        <select class="custom-select form-control-border" aria-label="jk" name="jkp"
+                                            required>
                                             <option selected>Pilih Jenis Kelamin</option>
                                             <option value="Laki-laki">Laki-laki </option>
                                             <option value="Perempuan">Perempuan</option>
@@ -45,11 +46,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="nba">Jabatan Kepanitiaan <b style="color: red">*</b></label>
-                                        <select class="custom-select form-control-border" aria-label="jk" name="jp" required>
+                                        <select class="custom-select form-control-border" aria-label="jk" name="jp"
+                                            required>
                                             <option selected="selected">Pilih Jabatan</option>
                                             <option value="Ketua Panitia">Ketua Panitia</option>
                                             <option value="Sekretaris Panitia">Sekretaris Panitia</option>
-                                            <option value="Bendahara Panitia" >Bendahara Panitia</option>
+                                            <option value="Bendahara Panitia">Bendahara Panitia</option>
                                             <option value="Devisi Acara">Devisi Acara</option>
                                             <option value="Devisi Konsumsi">Devisi Konsumsi</option>
                                             <option value="Devisi Pendanaan">Devisi Pendanaan</option>
@@ -110,149 +112,162 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Hadiid Andri Yulison
-                        </td>
-                        <td class="d-none">Win 95+</td>
-                        <td class="d-none">4</td>
-                        <td class="d-none">X</td>
-                        <td>Ketua Panitia</td>
-                        <td>
-                            <div class="btn-group btn-group-sm">
-                                <a class="btn btn-info" data-toggle="modal" data-target="#view"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-eye-fill" viewBox="0 0 16 16">
-                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                        <path
-                                            d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-                                    </svg></a>
+                    @foreach ($panitia as $p)
 
-                                {{-- modal --}}
-                                <div class="modal fade" id="view">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Data personal Panitia</h4>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="col">
-                                                    <!-- Widget: user widget style 1 -->
-                                                    <div class="card card-widget widget-user shadow-lg">
-                                                        <!-- Add the bg color to the header using any of the bg-* classes -->
-                                                        <div class="widget-user-header text-white"
-                                                            style="background: url('Assets/dist/img/photo1.png') center center;">
-                                                            <h3 class="widget-user-username text-right">Hadiid Andri
-                                                                Yulison
-                                                            </h3>
-                                                            <h5 class="widget-user-desc text-right">Ketua Panitia</h5>
-                                                        </div>
-                                                        <div class="widget-user-image">
-                                                            <img class="img-circle"
-                                                                src={{ URL::asset('Assets/images/peserta1.jpg') }}
-                                                                alt="peserta">
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $p->nama }}
+                            </td>
+                            <td class="d-none">{{ $p->nba }}</td>
+                            <td class="d-none">{{ $p->wa }}</td>
+                            <td class="d-none">{{ $p->jk }}</td>
+                            <td>{{ $p->jabatan }}</td>
+                            <td>
+                                <div class="btn-group btn-group-sm">
+                                    <a class="btn btn-info" data-toggle="modal"
+                                        data-target="#view{{ $p->id }}"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="16" height="16" fill="currentColor" class="bi bi-eye-fill"
+                                            viewBox="0 0 16 16">
+                                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                            <path
+                                                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                        </svg></a>
 
-                                                        </div>
-                                                        <div class="card-footer">
-                                                            <div class="row">
-                                                                <div class="col-sm-4 border-right">
-                                                                    <div class="description-block">
-                                                                        <h5 class="description-header">
-                                                                            <a href="#"><i
-                                                                                    class="fa-solid fa-delete-left"></i></a>
-                                                                        </h5>
-                                                                        <span class="description-text">DELETE</span>
-                                                                    </div>
-                                                                    <!-- /.description-block -->
-                                                                </div>
-                                                                <!-- /.col -->
-                                                                <div class="col-sm-4 border-right">
-                                                                    <div class="description-block">
-                                                                        <h5 class="description-header">
-                                                                            <a href="https://api.whatsapp.com/send?phone=6289620569613&text=Assalamualaikum%20Hadiid%20Andri%20Yulison%2C%20Ketua%20Panitia%2C"
-                                                                                target="_blank"><i
-                                                                                    class="fa-brands fa-whatsapp"></i></a>
-                                                                        </h5>
-                                                                        <span class="description-text">CHAT</span>
-                                                                    </div>
-                                                                    <!-- /.description-block -->
-                                                                </div>
-                                                                <!-- /.col -->
-                                                                <div class="col-sm-4">
-                                                                    <div class="description-block">
-                                                                        <h5 class="description-header">
-                                                                            <a href="#">
-                                                                                <i class="fa-solid fa-star"></i>
-                                                                            </a>
-                                                                        </h5>
-                                                                        <span class="description-text">RATING</span>
-                                                                    </div>
-                                                                    <!-- /.description-block -->
-                                                                </div>
-                                                                <!-- /.col -->
-                                                            </div>
-                                                            <!-- /.row -->
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.widget-user -->
-                                                </div>
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="card">
-                                                                <div class="card-header">
-                                                                    <h3 class="card-title">
-                                                                        <i class="fa-solid fa-circle-info"></i>
-                                                                        Information
-                                                                    </h3>
-                                                                </div>
-                                                                <!-- /.card-header -->
-                                                                <div class="card-body">
-                                                                    <dl>
-                                                                        <dt>Nama Lengkap</dt>
-                                                                        <dd>Hadiid Andri Yulison </dd>
-                                                                        <dt>NBA</dt>
-                                                                        <dd>0000-0000-0000</dd>
 
-                                                                        <dt>No Wa</dt>
-                                                                        <dd>+6289620569613
-                                                                        </dd>
-                                                                        <dt>Jenis Kelamin</dt>
-                                                                        <dd>Laki - Laki</dd>
-                                                                        <dt>Jabatan</dt>
-                                                                        <dd>Ketua Panitia</dd>
-                                                                        </d>
-                                                                </div>
-                                                                <!-- /.card-body -->
-                                                            </div>
-                                                            <!-- /.card -->
-                                                        </div>
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer justify-content-between">
-                                                <button type="button" class="btn btn-default"
-                                                    data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                        <!-- /.modal-content -->
-                                    </div>
-                                    <!-- /.modal-dialog -->
                                 </div>
 
-                                {{-- akhir modal --}}
 
-                            </div>
+                            </td>
 
 
-                        </td>
-                    </tr>
+
+
+                        </tr>
+
+
+
+                          {{-- modal --}}
+                                    <div class="modal fade" id="view{{ $p->id }}">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Data personal Panitia</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="col">
+                                                        <!-- Widget: user widget style 1 -->
+                                                        <div class="card card-widget widget-user shadow-lg">
+                                                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                                                            <div class="widget-user-header text-white"
+                                                                style="background: url('Assets/dist/img/photo1.png') center center;">
+                                                                <h3 class="widget-user-username text-right">{{ $p->nama }}
+
+                                                                </h3>
+                                                                <h5 class="widget-user-desc text-right">{{ $p->jabatan }}</h5>
+                                                            </div>
+                                                            <div class="widget-user-image">
+                                                                <img class="img-circle"
+                                                                    src={{ URL::asset('Assets/images/panitia/'.$p->foto) }}
+                                                                    alt="peserta">
+
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <div class="row">
+                                                                    <div class="col-sm-4 border-right">
+                                                                        <div class="description-block">
+                                                                            <h5 class="description-header">
+                                                                                <a href="#"><i
+                                                                                        class="fa-solid fa-delete-left"></i></a>
+                                                                            </h5>
+                                                                            <span class="description-text">DELETE</span>
+                                                                        </div>
+                                                                        <!-- /.description-block -->
+                                                                    </div>
+                                                                    <!-- /.col -->
+                                                                    <div class="col-sm-4 border-right">
+                                                                        <div class="description-block">
+                                                                            <h5 class="description-header">
+                                                                                <a href="https://api.whatsapp.com/send?phone={{ $p->wa }}&text=Assalamualaikum%20{{ $p->nama }}%2C%20{{ $p->jabatan }}"
+                                                                                    target="_blank"><i
+                                                                                        class="fa-brands fa-whatsapp"></i></a>
+                                                                            </h5>
+                                                                            <span class="description-text">CHAT</span>
+                                                                        </div>
+                                                                        <!-- /.description-block -->
+                                                                    </div>
+                                                                    <!-- /.col -->
+                                                                    <div class="col-sm-4">
+                                                                        <div class="description-block">
+                                                                            <h5 class="description-header">
+                                                                                <a href="#">
+                                                                                    <i class="fa-solid fa-star"></i>
+                                                                                </a>
+                                                                            </h5>
+                                                                            <span class="description-text">RATING</span>
+                                                                        </div>
+                                                                        <!-- /.description-block -->
+                                                                    </div>
+                                                                    <!-- /.col -->
+                                                                </div>
+                                                                <!-- /.row -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.widget-user -->
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="card">
+                                                                    <div class="card-header">
+                                                                        <h3 class="card-title">
+                                                                            <i class="fa-solid fa-circle-info"></i>
+                                                                            Information
+                                                                        </h3>
+                                                                    </div>
+                                                                    <!-- /.card-header -->
+                                                                    <div class="card-body">
+                                                                        <dl>
+                                                                            <dt>Nama Lengkap</dt>
+                                                                            <dd>{{ $p->nama }} </dd>
+                                                                            <dt>NBA</dt>
+                                                                            <dd>{{ $p->nba }}</dd>
+
+                                                                            <dt>No Wa</dt>
+                                                                            <dd>{{ $p->wa }}
+                                                                            </dd>
+                                                                            <dt>Jenis Kelamin</dt>
+                                                                            <dd>{{ $p->jk }}</dd>
+                                                                            <dt>Jabatan</dt>
+                                                                            <dd>{{ $p->jabatan }}</dd>
+                                                                            </d>
+                                                                    </div>
+                                                                    <!-- /.card-body -->
+                                                                </div>
+                                                                <!-- /.card -->
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer justify-content-between">
+                                                     <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Close</button>
+
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+
+                                    {{-- akhir modal --}}
+
+                    @endforeach
 
 
                 </tbody>

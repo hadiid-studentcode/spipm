@@ -14,9 +14,16 @@ class KepanitiaanController extends Controller
      */
     public function index()
     {
+
+        $result = new Panitia();
+        $panitia = $result->panitia();
+
+
+
         return view('Dashboard.Kepanitiaan.index')
         ->with('title','Kepanitiaan')
-        ->with('active', 'kepanitiaan');
+        ->with('active', 'kepanitiaan')
+        ->with('panitia',$panitia);
     }
 
     /**
