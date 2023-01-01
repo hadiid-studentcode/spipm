@@ -20,6 +20,7 @@ class KepanitiaanController extends Controller
 
 
 
+
         return view('Dashboard.Kepanitiaan.index')
         ->with('title','Kepanitiaan')
         ->with('active', 'kepanitiaan')
@@ -143,6 +144,18 @@ class KepanitiaanController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+      $id = decrypt($id);
+
+
+
+        $result = new Panitia();
+      $test =  $result->deletePanitia($id);
+
+    
+
+
+
+        return redirect('/kepanitiaan');
     }
 }

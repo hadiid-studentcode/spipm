@@ -180,10 +180,15 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-4 border-right">
                                                                         <div class="description-block">
+                                                                            <?php   $id =encrypt($p->id); ?>
+                                                                            <form action={{ URL::asset('kepanitiaan/'.$id) }} method="post">
+                                                                                @csrf
+                                                                                @method('delete')
                                                                             <h5 class="description-header">
-                                                                                <a href="#"><i
-                                                                                        class="fa-solid fa-delete-left"></i></a>
+                                                                              <button class="btn" type="submit" onclick="return confirm('apakah Anda Yakin ?')" ><i
+                                                                                        class="fa-solid fa-delete-left"></i></button>
                                                                             </h5>
+                                                                            </form>
                                                                             <span class="description-text">DELETE</span>
                                                                         </div>
                                                                         <!-- /.description-block -->
