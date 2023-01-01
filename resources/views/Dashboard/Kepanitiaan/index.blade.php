@@ -99,14 +99,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                            Explorer 4.0
+                        <td>1</td>
+                        <td>Hadiid Andri Yulison
                         </td>
                         <td class="d-none">Win 95+</td>
                         <td class="d-none">4</td>
                         <td class="d-none">X</td>
-                        <td>s</td>
+                        <td>Ketua Panitia</td>
                         <td>
                             <div class="btn-group btn-group-sm">
                                 <a class="btn btn-info" data-toggle="modal" data-target="#view"><svg
@@ -135,13 +134,16 @@
                                                         <!-- Add the bg color to the header using any of the bg-* classes -->
                                                         <div class="widget-user-header text-white"
                                                             style="background: url('Assets/dist/img/photo1.png') center center;">
-                                                            <h3 class="widget-user-username text-right">Elizabeth Pierce
+                                                            <h3 class="widget-user-username text-right">Hadiid Andri Yulison
                                                             </h3>
-                                                            <h5 class="widget-user-desc text-right">Web Designer</h5>
+                                                            <h5 class="widget-user-desc text-right">Ketua Panitia</h5>
                                                         </div>
                                                         <div class="widget-user-image">
                                                             <img class="img-circle"
-                                                                src="Assets/dist/img/user3-128x128.jpg" alt="User Avatar">
+                                                                src={{ URL::asset("Assets/images/peserta1.jpg") }}
+
+                                                                alt="peserta">
+
                                                         </div>
                                                         <div class="card-footer">
                                                             <div class="row">
@@ -158,7 +160,7 @@
                                                                 <div class="col-sm-4 border-right">
                                                                     <div class="description-block">
                                                                         <h5 class="description-header">
-                                                                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                                                                            <a href="https://api.whatsapp.com/send?phone=6289620569613&text=Assalamualaikum%20Hadiid%20Andri%20Yulison%2C%20Ketua%20Panitia%2C" target="_blank" ><i class="fa-brands fa-whatsapp"></i></a>
                                                                         </h5>
                                                                         <span class="description-text">CHAT</span>
                                                                     </div>
@@ -196,18 +198,19 @@
                                                                 <!-- /.card-header -->
                                                                 <div class="card-body">
                                                                     <dl>
-                                                                        <dt>Description lists</dt>
-                                                                        <dd>A description list is perfect for defining
-                                                                            terms.</dd>
-                                                                        <dt>Euismod</dt>
-                                                                        <dd>Vestibulum id ligula porta felis euismod semper
-                                                                            eget lacinia odio sem nec elit.</dd>
-                                                                        <dd>Donec id elit non mi porta gravida at eget
-                                                                            metus.</dd>
-                                                                        <dt>Malesuada porta</dt>
-                                                                        <dd>Etiam porta sem malesuada magna mollis euismod.
+                                                                        <dt>Nama Lengkap</dt>
+                                                                        <dd>Hadiid Andri Yulison </dd>
+                                                                        <dt>NBA</dt>
+                                                                        <dd>0000-0000-0000</dd>
+
+                                                                        <dt>No Wa</dt>
+                                                                        <dd>+6289620569613
                                                                         </dd>
-                                                                    </dl>
+                                                                        <dt>Jenis Kelamin</dt>
+                                                                        <dd>Laki - Laki</dd>
+                                                                        <dt>Jabatan</dt>
+                                                                        <dd>Ketua Panitia</dd>
+                                                                    </d>
                                                                 </div>
                                                                 <!-- /.card-body -->
                                                             </div>
