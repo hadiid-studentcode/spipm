@@ -17,6 +17,7 @@ class KepanitiaanController extends Controller
 
         $result = new Panitia();
         $panitia = $result->panitia();
+        
 
 
 
@@ -152,7 +153,7 @@ class KepanitiaanController extends Controller
         $result = new Panitia();
       $test =  $result->deletePanitia($id);
 
-    
+
 
 
 
