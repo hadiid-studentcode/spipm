@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-          \App\Models\Panitia::factory(20)->create();
+          \App\Models\Panitia::factory(30)->create();
 
     }
 }

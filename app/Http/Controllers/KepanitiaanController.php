@@ -14,18 +14,19 @@ class KepanitiaanController extends Controller
      */
     public function index()
     {
-
+        // model panitia
         $result = new Panitia();
+        // query panitia
         $panitia = $result->panitia();
-        
-
-
+        // query total panitia
+        $total = $result->total();
 
 
         return view('Dashboard.Kepanitiaan.index')
-        ->with('title','Kepanitiaan')
-        ->with('active', 'kepanitiaan')
-        ->with('panitia',$panitia);
+            ->with('title', 'Kepanitiaan')
+            ->with('active', 'kepanitiaan')
+            ->with('panitia', $panitia)
+            ->with('total', $total);
     }
 
     /**
@@ -72,7 +73,7 @@ class KepanitiaanController extends Controller
 
 
 
-            // simpan kegiatan
+            // simpan panitia
             $result = new Panitia();
             $result->simpanPanitia($data);
             $request->file('gambarp')->move(public_path('Assets/images/panitia'), $gambarp);
@@ -90,7 +91,7 @@ class KepanitiaanController extends Controller
                 'foto' => $request->input('gambarp')
             ];
 
-            // simpan kegiatan
+            // simpan penitia
             $result = new Panitia();
             $result->simpanPanitia($data);
 
@@ -100,7 +101,6 @@ class KepanitiaanController extends Controller
             return back()
                 ->with('warning', 'Panitia Gagal Disimpan');
         }
-
     }
 
     /**
@@ -134,7 +134,61 @@ class KepanitiaanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+
+            'gambarp' => 'mimes:jpg,jpeg,png|max:5000'
+        ]);
+
+        if ($request->hasfile('gambarp')) {
+
+
+
+            $gambarp = round(microtime(true) * 1000) . '-' . str_replace(' ', '-', $request->file('gambarp')->getClientOriginalName());
+
+
+            $data = [
+                'nama' => $request->input('namap'),
+                'nba' => $request->input('nbap'),
+                'wa' => $request->input('wap'),
+                'jk' => $request->input('jkp'),
+                'jabatan' => $request->input('jp'),
+                'foto' => $gambarp
+            ];
+
+
+
+
+
+            // ubah Panitia
+            $result = new Panitia();
+            $result->updatePanitia($id,$data);
+            $request->file('gambarp')->move(public_path('Assets/images/panitia'), $gambarp);
+
+
+
+            return redirect('/kepanitiaan');
+        } elseif ($request->hasfile('gambarp') == false) {
+            $data = [
+                'nama' => $request->input('namap'),
+                'nba' => $request->input('nbap'),
+                'wa' => $request->input('wap'),
+                'jk' => $request->input('jkp'),
+                'jabatan' => $request->input('jp'),
+                'foto' => $request->input('gambarp')
+            ];
+
+
+
+            // update panitia
+            $result = new Panitia();
+            $result->updatePanitia($id, $data);
+
+
+            return redirect('/kepanitiaan');
+        } else {
+            return back()
+                ->with('warning', 'Panitia Gagal Diubah');
+        }   
     }
 
     /**
@@ -146,12 +200,12 @@ class KepanitiaanController extends Controller
     public function destroy($id)
     {
 
-      $id = decrypt($id);
+        $id = decrypt($id);
 
 
 
         $result = new Panitia();
-      $test =  $result->deletePanitia($id);
+        $test =  $result->deletePanitia($id);
 
 
 

@@ -192,23 +192,21 @@
                                                                 <div class="col-sm-4 border-right">
                                                                     <div class="description-block">
                                                                         <h5 class="description-header">
+
+                                                                        </h5>
+                                                                        <span class="description-text"></span>
+                                                                    </div>
+                                                                    <!-- /.description-block -->
+                                                                </div>
+                                                                <!-- /.col -->
+                                                                 <div class="col-sm-4 border-right">
+                                                                    <div class="description-block">
+                                                                        <h5 class="description-header">
                                                                             <a href="https://api.whatsapp.com/send?phone={{ $p->wa }}&text=Assalamualaikum%20{{ $p->nama }}%2C%20{{ $p->jabatan }}"
                                                                                 target="_blank"><i
                                                                                     class="fa-brands fa-whatsapp"></i></a>
                                                                         </h5>
                                                                         <span class="description-text">CHAT</span>
-                                                                    </div>
-                                                                    <!-- /.description-block -->
-                                                                </div>
-                                                                <!-- /.col -->
-                                                                <div class="col-sm-4">
-                                                                    <div class="description-block">
-                                                                        <h5 class="description-header">
-                                                                            <a href="#">
-                                                                                <i class="fa-solid fa-star"></i>
-                                                                            </a>
-                                                                        </h5>
-                                                                        <span class="description-text">RATING</span>
                                                                     </div>
                                                                     <!-- /.description-block -->
                                                                 </div>
@@ -287,10 +285,10 @@
                                 {{-- modal ubah --}}
                                 <div class="modal fade" id="ubah{{ $ubah }}">
                                     <div class="modal-dialog">
-                                        <form action={{ URL::asset('/kepanitiaan') }} method="post"
+                                        <form action={{ URL::asset('/kepanitiaan/'.$p->id) }} method="post"
                                             enctype="multipart/form-data">
                                             @csrf
-                                            @method('PUT')
+                                            @method('put')
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h4 class="modal-title">Ubah Panitia</h4>
@@ -384,8 +382,8 @@
                                                             <div class="custom-file">
                                                                 <input type="file" class="custom-file-input"
                                                                     id="gambarp" name="gambarp">
-                                                                <label class="custom-file-label" for="inputgambar">Choose
-                                                                    file</label>
+                                                                <label class="custom-file-label" for="inputgambar">
+                                                                    {{ $p->foto }}</label>
                                                             </div>
                                                             <div class="input-group-append">
                                                                 <span class="input-group-text">Upload</span>
@@ -420,7 +418,7 @@
                 <tfoot>
                     <tr>
                         <th></th>
-                        <th>Total Kepanitiaan : 20 Orang</th>
+                        <th>Total Kepanitiaan : {{ $total }} Orang</th>
                         <th class="d-none"></th>
                         <th class="d-none"></th>
                         <th class="d-none">/th>

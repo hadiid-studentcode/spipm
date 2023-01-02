@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 
 class Panitia extends Model
 {
@@ -37,5 +39,15 @@ class Panitia extends Model
         $deleted = Panitia::where('id', $id)->delete();
 
         return $deleted;
+    }
+    public function total(){
+        $result = DB::table('panitia')->count();
+
+        return $result;
+    }
+    public function updatePanitia($id , $data){
+        $result = Panitia::where('id',$id)->update($data);
+
+        return $result;
     }
 }
