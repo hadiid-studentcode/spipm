@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 
 class Fasilitator extends Model
 {
@@ -21,4 +23,37 @@ class Fasilitator extends Model
 
     ];
     protected $primaryKey = 'id';
+
+    public function simpanFasilitator($data)
+    {
+
+        $result = Fasilitator::create($data);
+        return $result;
+    }
+
+    public function fasilitator()
+    {
+        $result = Fasilitator::all();
+
+        return $result;
+    }
+
+    public function deleteFasilitator($id)
+    {
+        $deleted = Fasilitator::where('id', $id)->delete();
+
+        return $deleted;
+    }
+    public function total()
+    {
+        $result = DB::table('fasilitator')->count();
+
+        return $result;
+    }
+    public function updateFasilitator($id, $data)
+    {
+        $result = Fasilitator::where('id', $id)->update($data);
+
+        return $result;
+    }
 }

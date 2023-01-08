@@ -188,7 +188,7 @@ class KepanitiaanController extends Controller
         } else {
             return back()
                 ->with('warning', 'Panitia Gagal Diubah');
-        }   
+        }
     }
 
     /**
@@ -205,7 +205,7 @@ class KepanitiaanController extends Controller
 
 
         $result = new Panitia();
-        $test =  $result->deletePanitia($id);
+         $result->deletePanitia($id);
 
 
 
