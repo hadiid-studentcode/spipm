@@ -74,7 +74,7 @@ class FasilitatorController extends Controller
                 'fasili_pendamping' => $request->input('pendampingf')
             ];
 
-            
+
 
 
             // simpan fasilitator
@@ -144,6 +144,9 @@ class FasilitatorController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        
+
         $request->validate([
 
             'gambarf' => 'mimes:jpg,jpeg,png|max:5000'
@@ -185,7 +188,7 @@ class FasilitatorController extends Controller
                 'wa' => $request->input('waf'),
                 'jk' => $request->input('jkf'),
                 'jabatan' => $request->input('jf'),
-                'foto' => $request->input('gambarf'),
+                // 'foto' => $request->input('gambarf'),
                 'fasili_pendamping' => $request->input('pendampingf')
             ];
 

@@ -138,7 +138,36 @@
 
                                 </div>
 
-                                {{-- modal --}}
+
+
+                                <div class="btn-group btn-group-sm">
+                                    <a class="btn btn-info" data-toggle="modal" <?php $ubah = encrypt($f->id); ?>
+                                        data-target="#ubah{{ $ubah }}"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="16" height="16" fill="currentColor"
+                                            class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path
+                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                            <path fill-rule="evenodd"
+                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                        </svg></a>
+
+
+
+
+
+                                </div>
+
+
+
+
+                            </td>
+
+
+
+
+                        </tr>
+
+                         {{-- modal --}}
                                 <div class="modal fade" id="view{{ $f->id }}">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
@@ -265,24 +294,7 @@
 
                                 {{-- akhir modal --}}
 
-                                <div class="btn-group btn-group-sm">
-                                    <a class="btn btn-info" data-toggle="modal" <?php $ubah = encrypt($f->id); ?>
-                                        data-target="#ubah{{ $ubah }}"><svg xmlns="http://www.w3.org/2000/svg"
-                                            width="16" height="16" fill="currentColor"
-                                            class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path
-                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                            <path fill-rule="evenodd"
-                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                        </svg></a>
-
-
-
-
-
-                                </div>
-
-                                {{-- modal ubah --}}
+                                 {{-- modal ubah --}}
                                 <div class="modal fade" id="ubah{{ $ubah }}">
                                     <div class="modal-dialog">
                                         <form action={{ URL::asset('/fasilitator/' . $f->id) }} method="post"
@@ -314,7 +326,7 @@
                                                     <div class="form-group">
                                                         <label for="nba">Nomor Wa <b style="color: red">*</b></label>
                                                         <input type="text" class="form-control" id="wa"
-                                                            name="wpf" placeholder="0000-0000-0000" required
+                                                            name="waf" placeholder="0000-0000-0000" required
                                                             value="{{ $f->wa }}">
                                                     </div>
                                                     <div class="form-group">
@@ -352,9 +364,9 @@
                                                         <label for="nba">Jabatan Fasilitator <b
                                                                 style="color: red">*</b></label>
                                                         <select class="custom-select form-control-border" aria-label="jk"
-                                                            name="jp" required>
-                                                            <option selected value="{{ $f->jp }}">
-                                                                {{ $f->jp }}</option>
+                                                            name="jf" required>
+                                                            <option selected value="{{ $f->jabatan }}">
+                                                                {{ $f->jabatan }}</option>
                                                             <option value="Master Of Training">Master Of Training</option>
                                                             <option value="As MOT">As.MOT ( Assisten MOT )
                                                             </option>
@@ -376,9 +388,10 @@
                                                         <div class="input-group">
                                                             <div class="custom-file">
                                                                 <input type="file" class="custom-file-input"
-                                                                    id="gambarf" name="gambarf">
+                                                                    id="gambarf" name="gambarf" value="{{ $f->foto }}">
+
                                                                 <label class="custom-file-label" for="inputgambar">
-                                                                    {{ $f->gambarf }}</label>
+                                                                    {{ $f->foto }}</label>
                                                             </div>
                                                             <div class="input-group-append">
                                                                 <span class="input-group-text">Upload</span>
@@ -400,12 +413,6 @@
                                 {{-- akhir --}}
 
 
-                            </td>
-
-
-
-
-                        </tr>
                     @endforeach
 
 
