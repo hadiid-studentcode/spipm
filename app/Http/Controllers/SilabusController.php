@@ -14,8 +14,11 @@ class SilabusController extends Controller
      */
     public function index()
     {
+
+
         return view('Dashboard.Silabus.index')
-            ->with('title', 'silabus');
+            ->with('title', 'silabus')
+            ->with('jenisSilabus','');
     }
 
     /**
@@ -89,9 +92,19 @@ class SilabusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request ,$jenis)
     {
-        //
+       $jenis = $request->input('jenis');
+
+           // query data silabus
+        $result = new Silabus();
+        $silabus = $result->Silabus($jenis);
+
+        return view('Dashboard.Silabus.index')
+        ->with('title', 'silabus')
+        ->with('jenisSilabus', $jenis)
+        ->with('silabus',$silabus);
+
     }
 
     /**

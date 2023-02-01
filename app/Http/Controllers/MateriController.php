@@ -17,7 +17,7 @@ class MateriController extends Controller
     public function index()
     {
         $data = new Silabus();
-        $silabus = $data->Silabus();
+        $silabus = $data->querySilabus();
 
 
 
@@ -57,7 +57,7 @@ class MateriController extends Controller
     public function create()
     {
         $data = new Silabus();
-        $silabus = $data->Silabus();
+        $silabus = $data->querySilabus();
 
 
 

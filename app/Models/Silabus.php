@@ -31,10 +31,18 @@ class Silabus extends Model
         return $result;
     }
 
-    public function Silabus()
+    public function querySilabus()
     {
         $result = Silabus::all();
 
         return $result;
     }
+
+    // menampilkan silabus berdasarkan jenis pelatihan
+    public function silabus($jenis){
+        $result = Silabus::where('jenis',$jenis)->first();
+
+        return $result;
+    }
+
 }
