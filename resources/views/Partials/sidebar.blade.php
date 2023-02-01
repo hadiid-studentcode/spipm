@@ -79,7 +79,7 @@
                 <li class="nav-header">Mengelola</li>
 
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ URL::asset('/kegiatan') }}"
                         class="nav-link {{ $active == 'kegiatan' ? 'active' : '' }}">
                       <i class="fa-solid fa-chart-line"></i>
@@ -89,7 +89,7 @@
                         </p>
                     </a>
 
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{ URL::asset('/materi') }}" class="nav-link {{ $active == 'materi' ? 'active' : '' }}">
                       <i class="fa-solid fa-swatchbook"></i>

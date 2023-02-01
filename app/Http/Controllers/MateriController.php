@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fasilitator;
+use App\Models\Materi;
+use App\Models\Silabus;
 use Illuminate\Http\Request;
 
 class MateriController extends Controller
@@ -13,7 +16,37 @@ class MateriController extends Controller
      */
     public function index()
     {
-        //
+        $data = new Silabus();
+        $silabus = $data->Silabus();
+
+
+
+        $result = new Fasilitator();
+        $fasilitator_pemateri = $result->FasilitatorPemateri();
+        $fasilitator_pendamping = $result->FasilitatorPendamping();
+
+
+        $result = new Materi();
+        $materi = $result->DataMateri();
+        $jumlah = $result->jumlahMateri();
+        $penanggungjawab = $result->PenanggungJawab();
+
+
+
+
+
+
+
+
+        return view('Dashboard.Materi.index')
+            ->with('title', 'Materi')
+            ->with('active', 'materi')
+            ->with('materi', $materi)
+            ->with('pemateri', $fasilitator_pemateri)
+            ->with('pendamping', $fasilitator_pendamping)
+            ->with('jumlah', $jumlah)
+            ->with('silabus', $silabus)
+            ->with('pj', $penanggungjawab);
     }
 
     /**
@@ -23,7 +56,15 @@ class MateriController extends Controller
      */
     public function create()
     {
-        //
+        $data = new Silabus();
+        $silabus = $data->Silabus();
+
+
+
+
+
+        return view('Dashboard.Materi.create')
+        ->with('silabus', $silabus);
     }
 
     /**

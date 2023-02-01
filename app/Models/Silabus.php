@@ -13,14 +13,28 @@ class Silabus extends Model
 
         'jenis',
         'standar_kompetensi',
+        'kompetensi_dasar',
         'indikator',
         'nm_materi',
-        'deskripsi',
+        'materi_pokok',
         'strategi_pembelajaran',
         'sks',
         'referensi_acuan',
-        'penilian'
+        'penilaian'
 
     ];
     protected $primaryKey = 'id';
+
+    public function simpanSilabus($data)
+    {
+        $result = Silabus::create($data);
+        return $result;
+    }
+
+    public function Silabus()
+    {
+        $result = Silabus::all();
+
+        return $result;
+    }
 }

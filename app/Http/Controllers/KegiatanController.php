@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 
 class KegiatanController extends Controller
@@ -13,7 +14,15 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        //
+        $data = new Kegiatan();
+        $kegiatan = $data->queryKegiatan();
+
+
+
+        return view('dashboard.Kegiatan.index')
+        ->with('title', 'Kegiatan')
+        ->with('active', 'kegiatan')
+        ->with('kegiatanAcara', $kegiatan);
     }
 
     /**

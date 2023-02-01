@@ -56,4 +56,33 @@ class Fasilitator extends Model
 
         return $result;
     }
+    public function FasilitatorPemateri()
+    {
+        $result = DB::table('fasilitator')
+        ->where('jabatan', '=', 'Fasilitator Pemateri')
+        ->get();
+
+        return $result;
+    }
+
+    public function FasilitatorPendamping()
+    {
+        $result = DB::table('fasilitator')
+        ->where('jabatan', '=', 'Fasilitator Pendamping')
+        ->get();
+
+        return $result;
+    }
+    public function fasilitatorTerpilih($id)
+    {
+        $result = DB::table('fasilitator')
+        ->select('id', 'nama', 'jabatan')
+
+        ->where('id', '=', $id)
+            ->where('jabatan', '=', 'Fasilitator Pemateri')
+
+            ->first();
+
+        return $result;
+    }
 }

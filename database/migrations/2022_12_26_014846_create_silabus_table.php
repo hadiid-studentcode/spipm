@@ -20,11 +20,11 @@ return new class extends Migration
             $table->text('kompetensi_dasar');
             $table->text('indikator');
             $table->string('nm_materi', 50);
-            $table->string('deskripsi', 200);
+            $table->text('materi_pokok');
             $table->text('strategi_pembelajaran');
             $table->integer('sks');
             $table->text('referensi_acuan');
-            $table->text('penilian');
+            $table->text('penilaian');
             $table->timestamps();
         });
     }

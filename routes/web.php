@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MateriController;
 use App\Http\Controllers\PesertaController;
+use App\Http\Controllers\SilabusController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FasilitatorController;
 use App\Http\Controllers\KepanitiaanController;
@@ -42,6 +45,15 @@ Route::resource('/kepanitiaan', KepanitiaanController::class)->middleware('auth'
 Route::resource('/fasilitator', FasilitatorController::class)->middleware('auth');
 // peserta
 Route::resource('/peserta', PesertaController::class)->middleware('auth');
+// kegiatan
+// Route::resource('/kegiatan', KegiatanController::class)->middleware('auth');
+// materi
+Route::resource('/materi', MateriController::class)->middleware('auth');
+// silabus
+Route::resource('/silabus', SilabusController::class)->middleware('auth');
+
+
+
 
 
 
