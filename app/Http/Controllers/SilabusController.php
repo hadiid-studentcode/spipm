@@ -80,7 +80,7 @@ class SilabusController extends Controller
         $result = new Silabus();
         $result->simpanSilabus($data);
 
-        return redirect('/silabus');
+        return redirect('/silabus/create');
 
 
 

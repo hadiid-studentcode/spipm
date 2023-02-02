@@ -55,84 +55,98 @@
             <tbody>
 
                 @if ($jenisSilabus == 'LDPR' && $silabus == true)
-                    <h1>LDPR</h1>
 
-                    <tr>
-                        <td>{{ $silabus->standar_kompetensi }}</td>
-                        <td>{{ $silabus->kompetensi_dasar }}</td>
-                        <td>{{ $silabus->indikator }}</td>
-                        <td>{{ $silabus->nm_materi }} - {{ $silabus->materi_pokok }}</td>
-                        <td>{{ $silabus->strategi_pembelajaran }}</td>
-                        <td>{{ $silabus->sks }}</td>
-                        <td>{{ $silabus->referensi_acuan }}</td>
-                        <td>{{ $silabus->penilaian }}</td>
-                    </tr>
+
+                    @foreach ($silabus as $s)
+                        <tr>
+                            <td>{{ $s->standar_kompetensi }}</td>
+                            <td>{{ $s->kompetensi_dasar }}</td>
+                            <td>{{ $s->indikator }}</td>
+                            <td>{{ $s->nm_materi }} - {{ $s->materi_pokok }}</td>
+                            <td>{{ $s->strategi_pembelajaran }}</td>
+                            <td>{{ $s->sks }}</td>
+                            <td>{{ $s->referensi_acuan }}</td>
+                            <td>{{ $s->penilaian }}</td>
+                        </tr>
+                    @endforeach
                 @elseif($jenisSilabus == 'TM1' && $silabus == true)
-                    <tr>
-                        <td>{{ $silabus->standar_kompetensi }}</td>
-                        <td>{{ $silabus->kompetensi_dasar }}</td>
-                        <td>{{ $silabus->indikator }}</td>
-                        <td>{{ $silabus->nm_materi }} - {{ $silabus->materi_pokok }}</td>
-                        <td>{{ $silabus->strategi_pembelajaran }}</td>
-                        <td>{{ $silabus->sks }}</td>
-                        <td>{{ $silabus->referensi_acuan }}</td>
-                        <td>{{ $silabus->penilaian }}</td>
-                    </tr>
+                    @foreach ($silabus as $s)
+                        <tr>
+                            <td>{{ $s->standar_kompetensi }}</td>
+                            <td>{{ $s->kompetensi_dasar }}</td>
+                            <td>{{ $s->indikator }}</td>
+                            <td>{{ $s->nm_materi }} - {{ $s->materi_pokok }}</td>
+                            <td>{{ $s->strategi_pembelajaran }}</td>
+                            <td>{{ $s->sks }}</td>
+                            <td>{{ $s->referensi_acuan }}</td>
+                            <td>{{ $s->penilaian }}</td>
+                        </tr>
+                    @endforeach
                 @elseif($jenisSilabus == 'TM2' && $silabus == true)
-                    <tr>
-                        <td>{{ $silabus->standar_kompetensi }}</td>
-                        <td>{{ $silabus->kompetensi_dasar }}</td>
-                        <td>{{ $silabus->indikator }}</td>
-                        <td>{{ $silabus->nm_materi }} - {{ $silabus->materi_pokok }}</td>
-                        <td>{{ $silabus->strategi_pembelajaran }}</td>
-                        <td>{{ $silabus->sks }}</td>
-                        <td>{{ $silabus->referensi_acuan }}</td>
-                        <td>{{ $silabus->penilaian }}</td>
-                    </tr>
+                    @foreach ($silabus as $s)
+                        <tr>
+                            <td>{{ $s->standar_kompetensi }}</td>
+                            <td>{{ $s->kompetensi_dasar }}</td>
+                            <td>{{ $s->indikator }}</td>
+                            <td>{{ $s->nm_materi }} - {{ $s->materi_pokok }}</td>
+                            <td>{{ $s->strategi_pembelajaran }}</td>
+                            <td>{{ $s->sks }}</td>
+                            <td>{{ $s->referensi_acuan }}</td>
+                            <td>{{ $s->penilaian }}</td>
+                        </tr>
+                    @endforeach
                 @elseif($jenisSilabus == 'TM3' && $silabus == true)
-                    <tr>
-                        <td>{{ $silabus->standar_kompetensi }}</td>
-                        <td>{{ $silabus->kompetensi_dasar }}</td>
-                        <td>{{ $silabus->indikator }}</td>
-                        <td>{{ $silabus->nm_materi }} - {{ $silabus->materi_pokok }}</td>
-                        <td>{{ $silabus->strategi_pembelajaran }}</td>
-                        <td>{{ $silabus->sks }}</td>
-                        <td>{{ $silabus->referensi_acuan }}</td>
-                        <td>{{ $silabus->penilaian }}</td>
-                    </tr>
+                    @foreach ($silabus as $s)
+                        <tr>
+                            <td>{{ $s->standar_kompetensi }}</td>
+                            <td>{{ $s->kompetensi_dasar }}</td>
+                            <td>{{ $s->indikator }}</td>
+                            <td>{{ $s->nm_materi }} - {{ $s->materi_pokok }}</td>
+                            <td>{{ $s->strategi_pembelajaran }}</td>
+                            <td>{{ $s->sks }}</td>
+                            <td>{{ $s->referensi_acuan }}</td>
+                            <td>{{ $s->penilaian }}</td>
+                        </tr>
+                    @endforeach
                 @elseif($jenisSilabus == 'PFP1' && $silabus == true)
-                    <tr>
-                        <td>{{ $silabus->standar_kompetensi }}</td>
-                        <td>{{ $silabus->kompetensi_dasar }}</td>
-                        <td>{{ $silabus->indikator }}</td>
-                        <td>{{ $silabus->nm_materi }} - {{ $silabus->materi_pokok }}</td>
-                        <td>{{ $silabus->strategi_pembelajaran }}</td>
-                        <td>{{ $silabus->sks }}</td>
-                        <td>{{ $silabus->referensi_acuan }}</td>
-                        <td>{{ $silabus->penilaian }}</td>
-                    </tr>
+                    @foreach ($silabus as $s)
+                        <tr>
+                            <td>{{ $s->standar_kompetensi }}</td>
+                            <td>{{ $s->kompetensi_dasar }}</td>
+                            <td>{{ $s->indikator }}</td>
+                            <td>{{ $s->nm_materi }} - {{ $s->materi_pokok }}</td>
+                            <td>{{ $s->strategi_pembelajaran }}</td>
+                            <td>{{ $s->sks }}</td>
+                            <td>{{ $s->referensi_acuan }}</td>
+                            <td>{{ $s->penilaian }}</td>
+                        </tr>
+                    @endforeach
                 @elseif($jenisSilabus == 'PFP2' && $silabus == true)
-                    <tr>
-                        <td>{{ $silabus->standar_kompetensi }}</td>
-                        <td>{{ $silabus->kompetensi_dasar }}</td>
-                        <td>{{ $silabus->indikator }}</td>
-                        <td>{{ $silabus->nm_materi }} - {{ $silabus->materi_pokok }}</td>
-                        <td>{{ $silabus->strategi_pembelajaran }}</td>
-                        <td>{{ $silabus->sks }}</td>
-                        <td>{{ $silabus->referensi_acuan }}</td>
-                        <td>{{ $silabus->penilaian }}</td>
-                    </tr>
+                    @foreach ($silabus as $s)
+                        <tr>
+                            <td>{{ $s->standar_kompetensi }}</td>
+                            <td>{{ $s->kompetensi_dasar }}</td>
+                            <td>{{ $s->indikator }}</td>
+                            <td>{{ $s->nm_materi }} - {{ $s->materi_pokok }}</td>
+                            <td>{{ $s->strategi_pembelajaran }}</td>
+                            <td>{{ $s->sks }}</td>
+                            <td>{{ $s->referensi_acuan }}</td>
+                            <td>{{ $s->penilaian }}</td>
+                        </tr>
+                    @endforeach
                 @elseif($jenisSilabus == 'FORTASI' && $silabus == true)
-                    <tr>
-                        <td>{{ $silabus->standar_kompetensi }}</td>
-                        <td>{{ $silabus->kompetensi_dasar }}</td>
-                        <td>{{ $silabus->indikator }}</td>
-                        <td>{{ $silabus->nm_materi }} - {{ $silabus->materi_pokok }}</td>
-                        <td>{{ $silabus->strategi_pembelajaran }}</td>
-                        <td>{{ $silabus->sks }}</td>
-                        <td>{{ $silabus->referensi_acuan }}</td>
-                        <td>{{ $silabus->penilaian }}</td>
-                    </tr>
+                    @foreach ($silabus as $s)
+                        <tr>
+                            <td>{{ $s->standar_kompetensi }}</td>
+                            <td>{{ $s->kompetensi_dasar }}</td>
+                            <td>{{ $s->indikator }}</td>
+                            <td>{{ $s->nm_materi }} - {{ $s->materi_pokok }}</td>
+                            <td>{{ $s->strategi_pembelajaran }}</td>
+                            <td>{{ $s->sks }}</td>
+                            <td>{{ $s->referensi_acuan }}</td>
+                            <td>{{ $s->penilaian }}</td>
+                        </tr>
+                    @endforeach
                 @else
                     <h1></h1>
                 @endif

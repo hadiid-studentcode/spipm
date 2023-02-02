@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Silabus extends Model
 {
@@ -40,8 +41,14 @@ class Silabus extends Model
 
     // menampilkan silabus berdasarkan jenis pelatihan
     public function silabus($jenis){
-        $result = Silabus::where('jenis',$jenis)->first();
+        $result = Silabus::where('jenis',$jenis);
 
+        $result = DB::table('silabus')
+            ->where('jenis', '=', $jenis)
+
+            ->get();
+
+       
         return $result;
     }
 
