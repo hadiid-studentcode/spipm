@@ -75,7 +75,12 @@ class MateriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tanggal = $request->input('hari');
+        $waktuDari = $request->input('wdari');
+        $waktuSampai = $request->input('wsampai');
+        $idSilabus = $request->input('materi');
+        $status = 'belum selesai';
+
     }
 
     /**

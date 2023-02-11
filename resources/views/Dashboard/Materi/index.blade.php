@@ -34,103 +34,95 @@
                     </div>
                     {{-- akhir modal --}}
                     <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#materi">Kelola Rowndown
-                    </button </div>
+                    </button>
 
 
                 </div>
             </h3>
-            {{-- modal --}}
-            <div class="modal fade" id="materi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- /.modal -->
+
+            <div class="modal fade" id="materi">
                 <div class="modal-dialog">
                     <form action="{{ URL::asset('/materi') }}" method="post">
-                        @csrf
+
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Pilih Materi</h5>
-                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                <h4 class="modal-title">Pilih Materi</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                             <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="hari" class="form-label">Hari</label>
-                                    <input type="date" class="form-control" name="hari">
+                                @csrf
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Hari</label>
+                                    <input type="date" class="form-control" id="hari" name="hari">
                                 </div>
-                                <div class="mb-3">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label class="col-form-label"> Waktu
-                                                    Pelaksanaan,<br>Dari:
-                                                    <b style="color: red">*</b></label>
-                                                <input type="time" class="form-control" name="wdari" required>
+                                <div class="form-group">
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label class="col-form-label"> Waktu
+                                                        Pelaksanaan,<br>Dari:
+                                                        <b style="color: red">*</b></label>
+                                                    <input type="time" class="form-control" name="wdari" required>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label class="col-form-label"> Waktu
-                                                    Pelaksanaan,<br>Sampai:
-                                                    <b style="color: red">*</b>
-                                                    <input type="time" class="form-control" name="wsampai" required>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="col-form-label"> Waktu
+                                                        Pelaksanaan,<br>Sampai:
+                                                        <b style="color: red">*</b>
+                                                        <input type="time" class="form-control" name="wsampai" required>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="Materi" class="form-label">Materi / Kegiatan <b
-                                            style="color: red">*</b></label>
-                                    <select class="form-select" aria-label="Default select example" name="materi"required>
-                                        <option selected>Pilih Materi / Kegiatan</option>
-                                        @foreach ($silabus as $m)
-                                            <option value="<?php echo $m->id; ?>"><?php echo $m->materi; ?></option>
-                                        @endforeach
+                                <div class="form-group">
+                                    <label for="exampleSelectBorder">Materi</label>
+                                    <select class="custom-select form-control-border" id="exampleSelectBorder"
+                                        name="materi">
+                                        <option selected>Pilih Materi</option>
+                                        <option>Value 1</option>
+                                        <option>Value 2</option>
+                                        <option>Value 3</option>
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="Materi" class="form-label">Penanggung Jawab <b
-                                            style="color: red">*</b></label>
 
-                                    <select class="form-select" aria-label="Default select example" name="pj"required>
-                                        <option selected>Pilih Penanggung Jawab</option>
 
-                                        @foreach ($pj as $p)
-                                            <option value="{{ $p->jabatan }}">{{ $p->jabatan }}</option>
-                                        @endforeach
-                                        <option value="Panitia">Panitia</option>
-                                        <option value="ALL">ALL</option>
-                                        <option value="Fasilitator">Fasilitator</option>
-
-                                    </select>
-
-                                </div>
-                                <div class="mb-3">
-                                    <label for="Materi" class="form-label">Fasilitator Pemateri </label>
-
-                                    <select class="form-select" aria-label="Default select example" name="pemateri">
-                                        <option selected>Pilih Fasilitator Pemateri</option>
-                                        @foreach ($pemateri as $p)
-                                            <option value="<?php echo $p->nama; ?>"><?php echo $p->nama; ?></option>
-                                        @endforeach
-                                    </select>
-
-                                </div>
-                                <div class="mb-3">
-                                    <label for="Materi" class="form-label">Fasilitator Pendamping</label>
-                                    <select class="form-select" aria-label="Default select example" name="pendamping">
-                                        <option selected>Pilih Fasilitator Pendamping</option>
-                                        @foreach ($pendamping as $pen)
-                                            <option value="<?php echo $pen->nama; ?>"><?php echo $pen->nama; ?></option>
-                                        @endforeach
+                                <div class="form-group">
+                                    <label for="exampleSelectBorder">Fasilitator</label>
+                                    <select class="custom-select form-control-border" id="exampleSelectBorder"
+                                        name="pemateri">
+                                        <option selected>Pilih Fasilitator</option>
+                                        <option>Value 1</option>
+                                        <option>Value 2</option>
+                                        <option>Value 3</option>
                                     </select>
                                 </div>
+
+
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <!-- /.card-body -->
+
+
+
+
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Save changes</button>
                             </div>
+                        </div>
                     </form>
+                    <!-- /.modal-content -->
                 </div>
+                <!-- /.modal-dialog -->
             </div>
-            {{-- akhir modal --}}
+            <!-- /.modal -->
 
         </div>
     </div>
@@ -143,9 +135,8 @@
                     <th>Hari/Tanggal</th>
                     <th>Waktu</th>
                     <th>Materi</th>
-                    <th>Penanggung Jawab</th>
-                    <th>Fasilitator Pemateri</th>
-                    <th>Fasilitator Pendamping</th>
+                    <th>Fasilitator</th>
+
 
                 </tr>
             </thead>
@@ -157,8 +148,7 @@
                         <td>{{ $m->waktu_dari }} - {{ $m->waktu_sampai }}</td>
                         <td><?php echo $m->BankMateri->materi; ?></td>
                         <td>{{ $m->PenanggungJawab }}</td>
-                        <td>{{ $m->fasilitator_pemateri }}</td>
-                        <td>{{ $m->fasilitator_pendamping }}</td>
+
 
 
 
@@ -173,8 +163,7 @@
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th></th>
-                    <th></th>
+                
 
                     <th>Total Materi : {{ $jumlah }}</th>
                 </tr>
